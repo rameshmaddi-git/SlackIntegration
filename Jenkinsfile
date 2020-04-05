@@ -7,7 +7,7 @@ pipeline {
 					CI_ERROR = "Failed while checking out SCM"
 				}
 				sh """
-					if [ -z  params.${PACKAGE_NAME} ]; then
+					if [ -z  ${PACKAGE_NAME} ]; then
 						exit 1
 					fi
 				"""
@@ -19,12 +19,12 @@ pipeline {
 					CI_ERROR = "Failed while building application"
 				}
 				sh """
-					if [ -d params.${PACKAGE_NAME} ]; then
+					if [ -d ${PACKAGE_NAME} ]; then
 						exit 1
 					else
-						mkdir params.${PACKAGE_NAME}
-						cd params.${PACKAGE_NAME}
-						yum -y install params.${PACKAGE_NAME}
+						mkdir ${PACKAGE_NAME}
+						cd ${PACKAGE_NAME}
+						yum -y install ${PACKAGE_NAME}
 					fi
 				"""
 			}
@@ -35,10 +35,10 @@ pipeline {
 					CI_ERROR = "Failed while deploying application"
 				}
 				sh """
-					if [ `which params.${PACKAGE_NAME}` ]; then
-						echo "params.${PACKAGE_NAME} installed"
+					if [ `which ${PACKAGE_NAME}` ]; then
+						echo "${PACKAGE_NAME} installed"
 					else
-						echo "params.${PACKAGE_NAME} is not installed"
+						echo "${PACKAGE_NAME} is not installed"
 					fi
 				"""		
 			}
