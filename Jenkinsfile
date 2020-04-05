@@ -64,7 +64,6 @@ pipeline {
 					sed -i "s/%%BUILD_STATUS%%/${BUILD_STATUS}/g" report.html
 					sed -i "s/%%ERROR%%/${CI_ERROR}/g" report.html
 					sed -i "s|%%CONSOLE_LOG%%|${CONSOLE_LOG}|g" report.html
-					cp report.html "${WORKSPACE}"
 				"""
 				publishHTML(target:[
 					allowMissing: true,
