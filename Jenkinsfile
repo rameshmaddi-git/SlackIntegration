@@ -24,7 +24,7 @@ pipeline {
 					else
 						mkdir ${PACKAGE_NAME}
 						cd ${PACKAGE_NAME}
-						yum -y install ${PACKAGE_NAME}
+						sudo yum -y install ${PACKAGE_NAME}
 					fi
 				"""
 			}
