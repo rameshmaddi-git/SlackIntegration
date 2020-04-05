@@ -1,2 +1,1 @@
-# JenkinsNotifications
-# Jenkins Notifications
+# Slack Integration to Jenkins build job alerts
