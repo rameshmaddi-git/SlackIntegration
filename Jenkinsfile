@@ -23,6 +23,8 @@ pipeline {
 						exit 1
 					else
 						mkdir ${PACKAGE_NAME}
+						cd ${PACKAGE_NAME}
+						sudo yum -y install ${PACKAGE_NAME}
 					fi
 				"""
 			}
@@ -37,6 +39,7 @@ pipeline {
 						echo "${PACKAGE_NAME} installed"
 					else
 						echo "${PACKAGE_NAME} is not installed"
+						exit 1
 					fi
 				"""		
 			}
